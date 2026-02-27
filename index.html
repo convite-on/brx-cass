@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRX Bet - Cassino Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Tela de Verificação de Idade -->
+    <div id="age-verification" class="age-verification">
+        <div class="age-modal">
+            <div class="age-logo">
+                <span class="logo-brx">BRX</span>
+                <span class="logo-bet">.BET</span>
+            </div>
+            <h2>Verificação de Idade</h2>
+            <p>Este site contém conteúdo destinado apenas a maiores de 18 anos.</p>
+            <div class="age-buttons">
+                <button onclick="confirmAge(true)" class="btn-age-yes">Tenho 18 anos ou mais</button>
+                <button onclick="confirmAge(false)" class="btn-age-no">Tenho menos de 18 anos</button>
+            </div>
+            <p class="age-warning">Jogue com responsabilidade. O jogo pode causar vício.</p>
+        </div>
+    </div>
+
+    <!-- Tela de Cadastro -->
+    <div id="register-screen" class="screen hidden">
+        <div class="register-container">
+            <div class="register-logo">
+                <span class="logo-brx">BRX</span>
+                <span class="logo-bet">.BET</span>
+            </div>
+            <div class="register-box">
+                <h2>Criar Conta</h2>
+                <p class="register-subtitle">Gire a roleta e ganhe até <span class="highlight">R$ 10.000</span>!</p>
+                <form id="register-form" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" id="reg-name" required placeholder="Digite seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="reg-email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>CPF</label>
+                        <input type="text" id="reg-cpf" required placeholder="000.000.000-00" maxlength="14">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" id="reg-phone" required placeholder="(00) 00000-0000" maxlength="15">
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" id="reg-password" required placeholder="Crie uma senha">
+                    </div>
+                    <button type="submit" class="btn-register">CRIAR CONTA E GANHAR BÔNUS</button>
+                </form>
+                <p class="login-link">Já tem conta? <a href="#" onclick="showLogin()">Entrar</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela da Roleta -->
+    <div id="roulette-screen" class="screen hidden">
+        <div class="roulette-container">
+            <div class="roulette-background"></div>
+            <div class="roulette-content">
+                <h1 class="roulette-title">GIRE E GANHE!</h1>
+                <p class="roulette-subtitle">Prêmio garantido de até R$ 10.000</p>
+                
+                <div class="wheel-container">
+                    <div class="wheel-pointer"></div>
+                    <canvas id="roulette-wheel" width="400" height="400"></canvas>
+                    <button id="spin-btn" class="spin-btn" onclick="spinWheel()">
+                        <span>GIRAR</span>
+                    </button>
+                </div>
+                
+                <p class="roulette-info">Clique no botão para girar a roleta!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de Vitória -->
+    <div id="win-popup" class="popup hidden">
+        <div class="popup-content win-content">
+            <div class="win-confetti"></div>
+            <div class="win-icon">🎉</div>
+            <h2>PARABÉNS!</h2>
+            <p class="win-text">Você ganhou</p>
+            <p class="win-amount">R$ 10.000,00</p>
+            <p class="win-bonus">em bônus de boas-vindas!</p>
+            <button onclick="goToCasino()" class="btn-win">ACEITAR E JOGAR</button>
+        </div>
+    </div>
+
+    <!-- Cassino Principal -->
+    <div id="casino-screen" class="screen hidden">
+        <!-- Header -->
+        <header class="casino-header">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-brx">BRX</span>
+                    <span class="logo-bet">.BET</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <nav class="main-nav">
+                    <a href="#" class="nav-link active" onclick="showSection('slots')">Slots</a>
+                    <a href="#" class="nav-link" onclick="showSection('cassino')">Cassino</a>
+                    <a href="#" class="nav-link" onclick="showSection('ao-vivo')">Ao Vivo</a>
+                    <a href="#" class="nav-link" onclick="showSection('esportes')">Esportes</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="balance-box">
+                    <span class="balance-label">Saldo:</span>
+                    <span class="balance-amount" id="balance">R$ 10.000,00</span>
+                </div>
+                <button class="btn-deposit" onclick="showDeposit()">DEPOSITAR</button>
+                <div class="user-menu">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Banner -->
+        <div class="casino-banner">
+            <div class="banner-slide active">
+                <div class="banner-content">
+                    <h2>BÔNUS DE BOAS-VINDAS</h2>
+                    <p>100% até R$ 5.000 no primeiro depósito</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jogos -->
+        <div class="games-section">
+            <div class="section-header">
+                <h3><i class="fas fa-fire"></i> Jogos Populares</h3>
+            </div>
+            <div class="games-grid" id="games-grid">
+                <!-- Jogos serão gerados via JS -->
+            </div>
+        </div>
+
+        <!-- Blur Overlay (quando não depositou) -->
+        <div id="deposit-blur" class="deposit-blur">
+            <div class="blur-content">
+                <i class="fas fa-lock"></i>
+                <h3>Saldo Bloqueado</h3>
+                <p>Para jogar ou sacar, faça um depósito primeiro.</p>
+                <button class="btn-deposit-large" onclick="showDeposit()">FAZER DEPÓSITO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Depósito -->
+    <div id="deposit-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Faça seu Depósito</h2>
+                <button class="btn-close" onclick="closeDeposit()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="deposit-info">Escolha o valor do depósito:</p>
+                <div class="deposit-options">
+                    <button class="deposit-option" onclick="selectDeposit(20)">
+                        <span class="deposit-value">R$ 20,00</span>
+                    </button>
+                    <button class="deposit-option" onclick="selectDeposit(50)">
+                        <span class="deposit-value">R$ 50,00</span>
+                    </button>
+                    <button class="deposit-option" onclick="selectDeposit(75)">
+                        <span class="deposit-value">R$ 75,00</span>
+                    </button>
+                    <button class="deposit-option" onclick="selectDeposit(100)">
+                        <span class="deposit-value">R$ 100,00</span>
+                    </button>
+                    <button class="deposit-option" onclick="selectDeposit(200)">
+                        <span class="deposit-value">R$ 200,00</span>
+                    </button>
+                    <button class="deposit-option" onclick="selectDeposit(400)">
+                        <span class="deposit-value">R$ 400,00</span>
+                    </button>
+                </div>
+                <div class="deposit-custom">
+                    <label>Outro valor:</label>
+                    <input type="number" id="custom-deposit" placeholder="Digite o valor">
+                </div>
+                <button class="btn-confirm-deposit" onclick="confirmDeposit()">IR PARA PAGAMENTO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Pagamento -->
+    <div id="payment-modal" class="modal hidden">
+        <div class="modal-content payment-content">
+            <div class="modal-header">
+                <h2>Processando Pagamento</h2>
+            </div>
+            <div class="modal-body payment-body">
+                <div class="payment-loader">
+                    <div class="spinner"></div>
+                </div>
+                <p class="payment-text">Redirecionando para o gateway de pagamento...</p>
+                <p class="payment-amount" id="payment-amount">R$ 0,00</p>
+                <p class="payment-wait">Aguarde enquanto processamos seu pagamento</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Sucesso -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Pagamento Confirmado!</h2>
+            <p class="success-text">Seu depósito foi processado com sucesso.</p>
+            <p class="success-amount" id="success-amount">R$ 0,00</p>
+            <p class="success-bonus">+ R$ 10.000,00 de bônus liberado!</p>
+            <button class="btn-success" onclick="closeSuccess()">COMEÇAR A JOGAR</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="casino-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-brx">BRX</span>
+                <span class="logo-bet">.BET</span>
+            </div>
+            <p class="footer-text">© 2024 BRX Bet. Todos os direitos reservados.</p>
+            <p class="footer-responsible">Jogue com responsabilidade. +18</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

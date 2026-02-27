@@ -1,0 +1,1030 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #FFD700;
+    --primary-dark: #FFA500;
+    --secondary: #FF6B00;
+    --dark: #0a0a0a;
+    --darker: #050505;
+    --gray: #1a1a1a;
+    --gray-light: #2a2a2a;
+    --text: #ffffff;
+    --text-muted: #888888;
+    --success: #00C851;
+    --danger: #ff4444;
+    --gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+    --gradient-dark: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--darker);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Logo */
+.logo-brx {
+    color: var(--primary);
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+
+.logo-bet {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+/* Telas */
+.screen {
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ========== VERIFICAÇÃO DE IDADE ========== */
+.age-verification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.age-modal {
+    background: var(--gray);
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+}
+
+.age-logo {
+    margin-bottom: 30px;
+}
+
+.age-modal h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.age-modal p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.age-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.btn-age-yes {
+    background: var(--gradient-gold);
+    color: var(--dark);
+    border: none;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-age-yes:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.btn-age-no {
+    background: transparent;
+    color: var(--text-muted);
+    border: 2px solid var(--text-muted);
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-age-no:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.age-warning {
+    font-size: 0.9rem !important;
+    color: var(--text-muted) !important;
+}
+
+/* ========== CADASTRO ========== */
+#register-screen {
+    background: var(--gradient-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.register-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-box {
+    background: var(--gray);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid var(--gray-light);
+}
+
+.register-box h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.register-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--gray-light);
+    border-radius: 10px;
+    background: var(--darker);
+    color: var(--text);
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.btn-register {
+    width: 100%;
+    background: var(--gradient-gold);
+    color: var(--dark);
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-muted);
+}
+
+.login-link a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* ========== ROLETA ========== */
+#roulette-screen {
+    background: var(--darker);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.roulette-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(180deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.8) 100%),
+        url('../images/roulette-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.roulette-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.roulette-title {
+    font-size: 3rem;
+    font-weight: 900;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.roulette-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.wheel-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px auto;
+}
+
+#roulette-wheel {
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4));
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 40px solid var(--primary);
+    z-index: 10;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+}
+
+.wheel-pointer::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+.spin-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--gradient-gold);
+    border: 5px solid var(--dark);
+    color: var(--dark);
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 5;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.spin-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+}
+
+.spin-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.spin-btn span {
+    display: block;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.roulette-info {
+    margin-top: 30px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* ========== POPUP DE VITÓRIA ========== */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: var(--gray);
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: popupIn 0.5s ease;
+}
+
+@keyframes popupIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.win-content {
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.4);
+}
+
+.win-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.win-content h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.win-text {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+}
+
+.win-amount {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 20px 0;
+}
+
+.win-bonus {
+    font-size: 1.1rem;
+    color: var(--success);
+    margin-bottom: 30px;
+}
+
+.btn-win {
+    background: var(--gradient-gold);
+    color: var(--dark);
+    border: none;
+    padding: 18px 50px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-win:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+/* Confetti effect */
+.win-confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* ========== CASSINO ========== */
+#casino-screen {
+    background: var(--darker);
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+.casino-header {
+    background: var(--gray);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.balance-box {
+    background: var(--darker);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--gray-light);
+}
+
+.balance-label {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    display: block;
+}
+
+.balance-amount {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.btn-deposit {
+    background: var(--gradient-gold);
+    color: var(--dark);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-deposit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.user-menu {
+    width: 40px;
+    height: 40px;
+    background: var(--gray-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Banner */
+.casino-banner {
+    height: 300px;
+    background: var(--gradient-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.banner-content {
+    text-align: center;
+    color: var(--dark);
+}
+
+.banner-content h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Jogos */
+.games-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-header h3 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header i {
+    color: var(--secondary);
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background: var(--gray);
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+.game-image {
+    width: 100%;
+    height: 200px;
+    background: var(--gradient-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-image img {
+    transform: scale(1.1);
+}
+
+.game-icon {
+    font-size: 3rem;
+}
+
+.game-info {
+    padding: 15px;
+}
+
+.game-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.game-provider {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Blur Overlay */
+.deposit-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.deposit-blur.hidden {
+    display: none !important;
+}
+
+.blur-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.blur-content i {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.blur-content h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.blur-content p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.btn-deposit-large {
+    background: var(--gradient-gold);
+    color: var(--dark);
+    border: none;
+    padding: 20px 50px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-deposit-large:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+/* ========== MODAIS ========== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.modal-content {
+    background: var(--gray);
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 25px;
+    border-bottom: 1px solid var(--gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-close:hover {
+    color: var(--text);
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.deposit-info {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.deposit-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.deposit-option {
+    background: var(--darker);
+    border: 2px solid var(--gray-light);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.deposit-option:hover,
+.deposit-option.selected {
+    border-color: var(--primary);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.deposit-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.deposit-custom {
+    margin-bottom: 20px;
+}
+
+.deposit-custom label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
+
+.deposit-custom input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--gray-light);
+    border-radius: 10px;
+    background: var(--darker);
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+.deposit-custom input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.btn-confirm-deposit {
+    width: 100%;
+    background: var(--gradient-gold);
+    color: var(--dark);
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-confirm-deposit:hover {
+    transform: scale(1.02);
+}
+
+/* Modal de Pagamento */
+.payment-content {
+    text-align: center;
+}
+
+.payment-body {
+    padding: 40px;
+}
+
+.payment-loader {
+    margin-bottom: 30px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--gray-light);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.payment-text {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.payment-amount {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.payment-wait {
+    color: var(--text-muted);
+}
+
+/* Modal de Sucesso */
+.success-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.success-icon {
+    font-size: 5rem;
+    color: var(--success);
+    margin-bottom: 20px;
+}
+
+.success-icon i {
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+.success-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.success-text {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.success-amount {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.success-bonus {
+    color: var(--success);
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.btn-success {
+    background: var(--gradient-gold);
+    color: var(--dark);
+    border: none;
+    padding: 18px 50px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-success:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.casino-footer {
+    background: var(--gray);
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid var(--gray-light);
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-text {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.footer-responsible {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 768px) {
+    .casino-header {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    
+    .header-center {
+        order: 3;
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    .main-nav {
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .nav-link {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .roulette-title {
+        font-size: 2rem;
+    }
+    
+    #roulette-wheel {
+        width: 300px !important;
+        height: 300px !important;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .deposit-options {
+        grid-template-columns: 1fr;
+    }
+}
